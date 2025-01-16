@@ -1,0 +1,104 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .cp-swti__embed {
+	position: relative;
+	&[data-aspect-ratio="video"] {
+		aspect-ratio: 16 / 9;
+	}
+	&[data-aspect-ratio="short"] {
+		aspect-ratio: 9 / 16;
+	}	
+	&[data-colour="light"] {
+		--SWTItileBgColour: #e7e7ea;
+		--SWTItileTitleColour: #1F1F23;
+		--SWTItileSubtitleColour: #53535F;
+		--SWTIhoverColour: #6540a5;
+	}
+	&[data-colour="dark"] {
+		--SWTItileBgColour: #0E0E10;
+		--SWTItileTitleColour: #DEDEE3;
+		--SWTItileSubtitleColour: #adb8a8;
+		--SWTIhoverColour: #6540a5;
+	}	
+	div {
+		background-color: var(--SWTItileBgColour);
+		color: var(--SWTItileTitleColour);
+		display: flex;
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		border-radius: 5px;
+		text-transform: uppercase;
+		font-weight: 700;
+		.cp-swti__embed--play {
+			position: absolute;
+			display: block;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: #f1f1f1;
+			box-shadow: 0px 0px 2px 0px #000;
+			&:before {
+				//css triangle pointing right
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 55%;
+				transform: translate(-50%, -50%);
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 37px 0px 37px 74px;
+				border-color: transparent transparent transparent #e7e7ea;
+			}
+		}
+		.cp-swti__embed--channel {
+			position: absolute;
+			display: block;
+			bottom: 10px;
+			left: 10px;
+			height: 40px;
+			line-height: 35px;
+			color: var(--SWTItileTitleColour);
+			padding-left: 50px;
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}
+		}
+		&:before {
+			content: "LIVE";
+			background:#E91916;
+			height: 20px;
+			border-radius: 2px;
+			padding: 0 3px;
+			color: #f1f1f1;
+			font-weight: bold;
+			font-size: 13px!important;    
+			text-transform: uppercase;
+			border-radius: 5px;
+			font-weight: 600;
+			line-height: 18px!important;    
+			position: absolute;
+			left:8px;
+			top:8px;
+			z-index: 1;
+		}		
+	}
+}

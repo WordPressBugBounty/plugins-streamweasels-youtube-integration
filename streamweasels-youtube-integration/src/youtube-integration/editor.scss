@@ -1,0 +1,548 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ .cp-swyi {
+	position: relative;
+	&[data-layout="wall"] {
+		display: grid;
+		position: relative;
+		grid-gap: 10px;
+		.cp-swyi__stream {
+			position: relative;
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 5px;
+			aspect-ratio: 25 / 14;
+			text-transform: uppercase;
+			font-weight: 700;
+			&[data-type="livestream"]:before {
+				content: "LIVE";
+				background:#E91916;
+				height: 20px;
+				border-radius: 2px;
+				padding: 0 3px;
+				color: #f1f1f1;
+				font-weight: bold;
+				font-size: 13px!important;    
+				text-transform: uppercase;
+				border-radius: 5px;
+				font-weight: 600;
+				line-height: 18px!important;    
+				position: absolute;
+				left:8px;
+				top:8px;
+				z-index: 1;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 15px;
+				left: 10px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}		
+		}		
+	}
+	&[data-layout="rail"] {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		.cp-swyi__container {
+			display: flex;
+			transition: transform 0.3s ease-out; 
+			width: calc(100%);
+		  }		
+		.cp-swyi__stream {
+			position: relative;
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 5px;
+			aspect-ratio: 25 / 14;
+			text-transform: uppercase;
+			font-weight: 700;			
+			width: calc(100% / 3); // as 3 slides are shown at a time
+			flex: 0 0 calc(100% / 3);
+			&:before {
+				content: "LIVE";
+				background:#E91916;
+                height: 20px;
+                border-radius: 2px;
+                padding: 0 3px;
+                color: #f1f1f1;
+                font-weight: bold;
+                font-size: 13px!important;    
+				text-transform: uppercase;
+				border-radius: 5px;
+				font-weight: 600;
+				line-height: 18px!important;    
+				position: absolute;
+				left:8px;
+				top:8px;
+				z-index: 1;
+			}	
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 15px;
+				left: 10px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}				
+		}		
+		button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: #fff;
+			border: none;
+			padding: 10px 15px;
+			cursor: pointer;
+			z-index: 9;
+		
+			&:disabled {
+			  background: rgba(0,0,0,0.2);
+			}
+		
+			&:hover {
+			  background: rgba(0,0,0,0.7);
+			}
+		
+			&:focus {
+			  outline: none;
+			}
+		
+			&.cp-swyi__arrow-left {
+			  left: 0;
+			}
+		
+			&.cp-swyi__arrow-right {
+			  right: 0;
+			}
+		}
+	}
+	&[data-layout="player"] {
+		display: flex;
+		.cp-swyi__player-wrapper {
+			width: 70%;
+		}
+		.cp-swyi__player {
+			height: 0;
+			padding-bottom: 56.25%;
+			width: 100%;
+			position: relative;
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: 700;
+			&[data-type="livestream"]:before {
+				content: "LIVE";
+				background:#E91916;
+                height: 20px;
+                border-radius: 2px;
+                padding: 0 3px;
+                color: #f1f1f1;
+                font-weight: bold;
+                font-size: 13px!important;    
+				text-transform: uppercase;
+				border-radius: 5px;
+				font-weight: 600;
+				line-height: 18px!important;    
+				position: absolute;
+				left:8px;
+				top:8px;
+				z-index: 1;
+			}
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 15px;
+				left: 10px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}					
+			p {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}	
+		}
+		.cp-swyi__player-list {
+			position: absolute;
+			top:0;
+			left: 70%;
+			width: 30%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			overflow-y: scroll;
+		}
+		.cp-swyi__stream {
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			text-align: center;
+			padding: 25px 0;
+			position: relative;
+			text-transform: uppercase;
+			font-weight: 700;			
+			&:after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: 10px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}			
+		}
+	}
+	&[data-layout="status"] {
+		display: flex;
+		.cp-swyi__twitch-logo {
+		    width: 52px;
+			height: 52px;
+			background: #ff0000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			position: relative;
+			border-top-left-radius: 5px;
+			border-bottom-left-radius: 5px;
+			span {
+				font-size: 40px;
+				position: relative;
+				top: 5px;
+				left: 1px;
+				width: 52px;
+				height: 52px;
+			}
+		}
+		.cp-swyi__player-list {
+			position: relative;
+			max-width: 300px;
+			background: #f7f7f8;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			color: #1F1F23;
+			height: 52px;
+			padding: 0 10px;
+		}
+		.cp-swyi__stream {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			p {
+				margin:0;
+				font-size: 15px;
+				strong {
+					text-transform: capitalize;
+					font-weight: 700;
+				}
+			}
+		}
+	}
+	&[data-layout="vods"] {
+		display: grid;
+		position: relative;
+		grid-gap: 10px;
+		.cp-swyi__stream {
+			position: relative;
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 5px;
+			aspect-ratio: 25 / 14;
+			text-transform: uppercase;
+			font-weight: 700;		
+		}
+		.cp-swyi__play {
+			position: absolute;
+			display: block;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background: #f1f1f1;
+			box-shadow: 0px 0px 2px 0px #000;
+			&:before {
+				//css triangle pointing right
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 55%;
+				transform: translate(-50%, -50%);
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 10px 0px 10px 20px;
+				border-color: transparent transparent transparent #e7e7ea;
+			}
+		}
+		.cp-swyi__channel {
+			position: absolute;
+			display: block;
+			bottom: 10px;
+			left: 10px;
+			height: 40px;
+			line-height: 35px;
+			color: var(--SWTItileTitleColour);
+			padding-left: 50px;
+			&:before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}
+		}		
+	}	
+	&[data-layout="showcase"] {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		.cp-swyi__container {
+			display: flex;
+			transition: transform 0.3s ease-out; 
+			width: calc(100%);
+		  }		
+		.cp-swyi__stream {
+			position: relative;
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 5px;
+			aspect-ratio: 9 / 16;
+			text-transform: uppercase;
+			font-weight: 700;			
+			width: calc(100% / 4 - 20px); // as 4 slides are shown at a time
+			flex: 0 0 calc(100% / 4 - 20px);
+			margin: 0 10px;
+			&[data-type="livestream"]:before {
+				content: "LIVE";
+				background:#E91916;
+                height: 20px;
+                border-radius: 2px;
+                padding: 0 3px;
+                color: #f1f1f1;
+                font-weight: bold;
+                font-size: 13px!important;    
+				text-transform: uppercase;
+				border-radius: 5px;
+				font-weight: 600;
+				line-height: 18px!important;    
+				position: absolute;
+				left:8px;
+				top:8px;
+				z-index: 1;
+			}	
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 15px;
+				left: 10px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}				
+		}		
+		button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: #fff;
+			border: none;
+			padding: 10px 15px;
+			cursor: pointer;
+			z-index: 9;
+		
+			&:disabled {
+			  background: rgba(0,0,0,0.2);
+			}
+		
+			&:hover {
+			  background: rgba(0,0,0,0.7);
+			}
+		
+			&:focus {
+			  outline: none;
+			}
+		
+			&.cp-swyi__arrow-left {
+			  left: 0;
+			}
+		
+			&.cp-swyi__arrow-right {
+			  right: 0;
+			}
+		}
+	}	
+	&[data-layout="feature"] {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		.cp-swyi__container {
+			display: flex;
+			transition: transform 0.3s ease-out; 
+			width: calc(100%);
+		  }		
+		.cp-swyi__stream {
+			position: relative;
+			background-color: var(--SWTItileBgColour);
+			color: var(--SWTItileTitleColour);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-align: center;
+			border-radius: 5px;
+			aspect-ratio: 25 / 14;
+			text-transform: uppercase;
+			font-weight: 700;			
+			width: calc(100% / 3); // as 3 slides are shown at a time
+			flex: 0 0 calc(100% / 3);
+			transform: scale(0.8);
+			&.active {
+				transform: scale(1);
+			}
+			&[data-type="livestream"]:before {
+				content: "LIVE";
+				background:#E91916;
+                height: 20px;
+                border-radius: 2px;
+                padding: 0 3px;
+                color: #f1f1f1;
+                font-weight: bold;
+                font-size: 13px!important;    
+				text-transform: uppercase;
+				border-radius: 5px;
+				font-weight: 600;
+				line-height: 18px!important;    
+				position: absolute;
+				left:8px;
+				top:8px;
+				z-index: 1;
+			}	
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: 15px;
+				left: 10px;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: #f1f1f1;
+				z-index: 1;
+			}				
+		}		
+		button {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			background: rgba(0,0,0,0.5);
+			color: #fff;
+			border: none;
+			padding: 10px 15px;
+			cursor: pointer;
+			z-index: 9;
+		
+			&:disabled {
+			  background: rgba(0,0,0,0.2);
+			}
+		
+			&:hover {
+			  background: rgba(0,0,0,0.7);
+			}
+		
+			&:focus {
+			  outline: none;
+			}
+		
+			&.cp-swyi__arrow-left {
+			  left: 0;
+			}
+		
+			&.cp-swyi__arrow-right {
+			  right: 0;
+			}
+		}
+	}	
+	&[data-colour="light"] {
+		--SWTItileBgColour: #e7e7ea;
+		--SWTItileTitleColour: #1F1F23;
+		--SWTItileSubtitleColour: #53535F;
+		--SWTIhoverColour: #6540a5;
+	}
+	&[data-colour="dark"] {
+		--SWTItileBgColour: #0E0E10;
+		--SWTItileTitleColour: #DEDEE3;
+		--SWTItileSubtitleColour: #adb8a8;
+		--SWTIhoverColour: #6540a5;
+	}
+	&[data-columns="4"] {
+		grid-template-columns: repeat(4, minmax(100px, 1fr));
+	}
+	&[data-columns="3"] {
+		grid-template-columns: repeat(3, minmax(100px, 1fr));
+	}
+	&[data-columns="2"] {
+		grid-template-columns: repeat(2, minmax(100px, 1fr));
+	}
+	&[data-columns="1"] {
+		grid-template-columns: repeat(1, minmax(100px, 1fr));
+	}
+	button {
+		position: absolute;
+	}
+	&__empty, &__error {
+		width: 100%;
+		grid-columns: 1 / -1;
+		p {
+			display: block;
+			text-align: center;
+		}
+		padding: 20px 0;
+	}
+}

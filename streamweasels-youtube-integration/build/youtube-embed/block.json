@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "streamweasels/youtube-embed",
+  "version": "0.1.0",
+  "title": "StreamWeasels YouTube Embed",
+  "category": "streamweasels",
+  "icon": "youtube",
+  "description": "StreamWeasels YouTube Embed - Embed a single YouTube stream.",
+  "keywords": [
+    "youtube",
+    "embed"
+  ],
+  "attributes": {
+    "id": {
+      "type": "string",
+      "default": "monstercat"
+    },
+    "type": {
+      "type": "string",
+      "default": "video"
+    },
+    "autoplay": {
+      "type": "boolean",
+      "default": false
+    },
+    "theme": {
+      "type": "string",
+      "default": "dark"
+    },
+    "muted": {
+      "type": "boolean",
+      "default": false
+    },
+    "embedChat": {
+      "type": "boolean",
+      "default": false
+    },
+    "width": {
+      "type": "string",
+      "default": ""
+    },
+    "height": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "align": true,
+    "anchor": true,
+    "color": {
+      "background": true,
+      "gradients": true
+    }
+  },
+  "textdomain": "streamweasels",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,576 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+ .cp-streamweasels-youtube {
+    .notice + & {
+        padding-top: 10px;
+    }
+    position: relative;
+    &__header {
+        margin: -10px -20px 0 -22px;
+        background:#E75725;
+        display: flex;
+        &-logo {
+            padding: 20px;
+            img {
+                max-width: 150px;
+            }
+        }
+        &-title {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            color: #fff;
+            h3 {
+                font-size: 23px;
+                font-weight: 400;
+                margin:0;
+                color: #fff;
+            }
+            p {
+                font-size: 18px;
+                margin:10px 0 0;
+                color: #fff;
+            }
+        }
+    }
+    .setup-instructions {
+        display: flex;
+        &--left {
+            flex-grow: 1;
+            margin-right: 10px;
+        }
+    }
+    .postbox {
+        box-shadow: 0 1px 6px 0 rgba(0,0,0,.3);
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+        &-shortcode {
+            th {
+                display: none;
+            }
+            code {
+                display: inline-block;
+                margin: 10px 0 0;
+            }
+            // td {
+            //     text-align: center;
+            // }
+        }
+        .sw-error {
+            display: none;
+        }
+        .sw-shortcode-help {
+            display: inline-block;
+            position: relative;
+            top: 2px;
+            height: 15px;
+            width: 15px;
+            background-size: contain;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0ic3ZnIiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwLCAwLCA0MDAsNDAwIj48ZyBpZD0ic3ZnZyI+PHBhdGggaWQ9InBhdGgwIiBkPSJNMTc1LjAwMCAxLjE4NSBDIDExLjg2MyAyMS4zODYsLTU4LjM4MSAyMjEuMzQ3LDU2LjIwNyAzMzkuMzUyIEMgMTYyLjMyNCA0NDguNjM0LDM0Ny42MjMgNDAzLjg4MiwzOTEuNzQ3IDI1OC4zMTUgQyA0MzMuNzIwIDExOS44NDAsMzE4LjcwMSAtMTYuNjA5LDE3NS4wMDAgMS4xODUgTTIxMi4xMDkgNjkuOTE2IEMgMjUxLjM5NSA3My4wNjMsMjc2LjAyNSAxMDIuNTIxLDI3Mi42MTUgMTQyLjI4MiBDIDI3MC43NTEgMTY0LjAxMiwyNjQuODMxIDE3NC45NDgsMjQyLjYzOCAxOTcuNjU2IEMgMjIzLjcwMiAyMTcuMDMxLDIyMS45MTcgMjIwLjY5MCwyMjEuODg5IDI0MC4xODQgQyAyMjEuODY5IDI1My44OTIsMjIzLjE0NCAyNTMuMTI1LDIwMC4zNzYgMjUzLjEyNSBDIDE3Ny45MDkgMjUzLjEyNSwxNzkuNDA2IDI1NC4wMjIsMTc5LjA0OSAyNDAuMzUwIEMgMTc4LjI4MCAyMTAuOTQ1LDE4NS4wNjQgMTk1Ljg5NiwyMTAuODAwIDE2OS45MjIgQyAyMjYuMDE0IDE1NC41NjcsMjI4LjM1NCAxNTAuODUxLDIyOS43MzQgMTM5Ljg0NiBDIDIzMi4xMjkgMTIwLjc0MywyMjMuMzg3IDExMi4zMTUsMjAxLjE3MiAxMTIuMzEwIEMgMTc5LjM0NyAxMTIuMzA2LDE3Mi41NzQgMTE3Ljk0NiwxNzAuNzM0IDEzNy42NTYgQyAxNjkuMjM1IDE1My43MTYsMTcwLjU2NCAxNTIuODgzLDE0OS43ODUgMTUwLjc4OSBDIDEyNS4xNjQgMTQ4LjMwNywxMjYuNjcwIDE0OS40ODcsMTI4LjA4NSAxMzMuNzk3IEMgMTMxLjUyNyA5NS42MjQsMTU0LjQ2NSA3Mi43NzksMTkyLjU3OCA2OS41NjYgQyAxOTkuNDQ2IDY4Ljk4NywyMDAuODM2IDY5LjAxMiwyMTIuMTA5IDY5LjkxNiBNMjEwLjM0NSAyODAuNjY3IEMgMjI3LjAzMyAyODguMzA2LDIzMC45NTkgMzA5Ljc5MSwyMTguMDMxIDMyMi43MTkgQyAyMDQuNDgyIDMzNi4yNjgsMTgxLjc1NCAzMzEuNTQzLDE3NS4xMTQgMzEzLjc5OCBDIDE2Ni45ODggMjkyLjA4MCwxODkuMzQ3IDI3MS4wNTMsMjEwLjM0NSAyODAuNjY3ICIgc3Ryb2tlPSJub25lIiBmaWxsPSIjMDAwMDAwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjwvcGF0aD48L2c+PC9zdmc+');
+        }
+        &-half-wrapper {
+          display: flex;
+          margin: 0 -20px;
+          @media screen and (max-width:768px) {
+            flex-wrap: wrap;
+          }
+        }
+        &-half {
+          width: 50%;
+          margin: 0 20px;
+          @media screen and (max-width:768px) {
+            width: 100%;
+          }
+        }    
+        .dashicons-discord {
+          background-size: contain;
+          background-image: url('../img/discord-logo.png');
+          background-repeat: no-repeat;
+          background-position-y: 2px;
+        }    
+    }
+    #poststuff {
+        h3 {
+            font-size: 16px;
+        }
+        .sw-debug-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+    .dashicons {
+        font-size: 22px;
+        padding-right: 5px;
+        &-lock {
+            color: #E75725
+        }
+        &-twitch {
+            color: #4B367C
+        }
+    }
+    .sw-notice {
+        background: #fff;
+        border: 1px solid #c3c4c7;
+        border-left-width: 4px;
+        box-shadow: 0 1px 1px rgba(0,0,0,.04);
+        padding: 1px 12px;
+        margin: 5px 0 15px;
+        p {
+            margin: .5em 0;
+            padding: 2px;
+        }
+        &.notice-error {
+            border-left-color: #d63638;
+        }
+    }
+    .sw-success {
+        display: inline-block;
+        span.dashicons {
+            color: green;
+        }
+    }
+    .range-bar {
+        display: inline-block;
+        max-width: 200px;
+        &-value {
+            display: inline-block;
+            position: relative;
+            background-color: #f7fcff;
+            border-radius: 5px;
+            height: 23px;
+            line-height: 23px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.15);
+            padding: 0 5px;
+            margin: 0 0 0 5px;
+            top: 3px;
+        }
+    }
+    .range-quantity {
+        background-color: #E75725;
+    }
+    .sw-layout-options {
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap;
+        margin: 0 -20px;
+        &__item {
+            margin: 0 10px;
+            &--locked {
+                position: relative;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    background: rgba(0,0,0,0.4)
+                }
+                .dashicons {
+                    position: absolute;
+                    top:50%;
+                    left:50%;
+                    color:whitesmoke;
+                    transform: translate(-50%,-50%);
+                    width: auto;
+                    height: auto;
+                    border-radius: 50%;
+                    &:before {
+                        font-size: 80px;
+                    }
+                }
+            }
+            &-title {
+                font-size: 16px;
+                line-height: 1.4;
+                text-align: center;
+                color: #1d2327;
+                padding: 5px 0 0;
+                .dashicons-yes-alt {
+                    color: green;
+                    padding-right:0;
+                }
+                .dashicons-no-alt {
+                    color: red;
+                    // background: red;
+                    border-radius: 50%;
+                    padding-right:0;
+                    &:before {
+                        font-size: 21px;
+                        vertical-align: top;
+                    }
+                }                
+            }
+        }
+    }
+    .swyi-shortcode {
+        display: inline-block;
+        background: rgba(0,0,0,.07);
+        padding: 3px 5px 2px 5px;
+        font-size: 13px;
+        margin-top: 10px;
+    }
+    .postbox-pro {
+      &:before {
+        content: "PAID ONLY";
+        font-family: Inter,Roobert,Helvetica Neue,Helvetica,Arial,sans-serif;
+        font-weight: bold;
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 140px;
+        transform: rotate(-22.5deg);
+        color: rgba(0, 0, 0, 0.1);
+      }
+      > *:not(.postbox-trial-wrapper) {
+        opacity: 0.33;
+        cursor: no-drop;
+      }
+      input*:not(.button),select,.wp-picker-container,.range-bar {
+        pointer-events:none;
+        cursor: no-drop;
+      }
+      .postbox-trial-wrapper {
+        position: absolute;
+        z-index:999;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+          font-size: 16px;
+          opacity: 0;
+          transform: scale(1.2);
+          transition: all .3s ease;
+        }
+        &:hover {
+          a {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      }
+    }
+}
+
+.tooltipped {
+    position: relative;
+  }
+  
+  // This is the tooltip bubble
+  .tooltipped::after {
+    position: absolute;
+    z-index: 1000000;
+    display: none;
+    padding: 5px 10px;
+    font: normal normal 11px/1.5 inherit;
+    -webkit-font-smoothing: subpixel-antialiased;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: break-word;
+    white-space: pre;
+    pointer-events: none;
+    content: attr(aria-label);
+    background: #E75725;
+    border-radius: 5px;
+    opacity: 0;
+  }
+  
+  // This is the tooltip arrow
+  .tooltipped::before {
+    position: absolute;
+    z-index: 1000001;
+    display: none;
+    width: 0;
+    height: 0;
+    color: #E75725;
+    pointer-events: none;
+    content: "";
+    // stylelint-disable-next-line primer/borders
+    border: 6px solid transparent;
+    opacity: 0;
+  }
+  
+  // delay animation for tooltip
+  @keyframes tooltip-appear {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  // This will indicate when we'll activate the tooltip
+  .tooltipped:hover,
+  .tooltipped:active,
+  .tooltipped:focus {
+    &::before,
+    &::after {
+      display: inline-block;
+      text-decoration: none;
+      animation-name: tooltip-appear;
+      animation-duration: .1s;
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in;
+      animation-delay: 0;
+    }
+  }
+  
+  .tooltipped-no-delay:hover,
+  .tooltipped-no-delay:active,
+  .tooltipped-no-delay:focus {
+    &::before,
+    &::after {
+      animation-delay: 0s;
+    }
+  }
+  
+  .tooltipped-multiline:hover,
+  .tooltipped-multiline:active,
+  .tooltipped-multiline:focus {
+    &::after {
+      display: table-cell;
+    }
+  }
+  
+  // Tooltipped south
+  .tooltipped-s,
+  .tooltipped-se,
+  .tooltipped-sw {
+    &::after {
+      top: 100%;
+      right: 50%;
+      // stylelint-disable-next-line primer/spacing
+      margin-top: 6px;
+    }
+  
+    &::before {
+      top: auto;
+      right: 50%;
+      bottom: -7px;
+      // stylelint-disable-next-line primer/spacing
+      margin-right: -6px;
+      border-bottom-color: var(--color-neutral-emphasis-plus);
+    }
+  }
+  
+  // Tooltips above the object
+  .tooltipped-n,
+  .tooltipped-ne,
+  .tooltipped-nw {
+    &::after {
+      right: 50%;
+      bottom: 100%;
+      // stylelint-disable-next-line primer/spacing
+      margin-bottom: 6px;
+    }
+  
+    &::before {
+      top: -7px;
+      right: 50%;
+      bottom: auto;
+      // stylelint-disable-next-line primer/spacing
+      margin-right: -6px;
+      border-top-color: var(--color-neutral-emphasis-plus);
+    }
+  }
+  
+  // Move the tooltip body to the center of the object.
+  .tooltipped-s::after,
+  .tooltipped-n::after {
+    transform: translateX(50%);
+  }
+  
+  // Tooltipped to the left
+  .tooltipped-w {
+    &::after {
+      right: 100%;
+      bottom: 50%;
+      // stylelint-disable-next-line primer/spacing
+      margin-right: 6px;
+      transform: translateY(50%);
+    }
+  
+    &::before {
+      top: 50%;
+      bottom: 50%;
+      left: -7px;
+      // stylelint-disable-next-line primer/spacing
+      margin-top: -6px;
+      border-left-color: var(--color-neutral-emphasis-plus);
+    }
+  }
+  
+  // tooltipped to the right
+  .tooltipped-e {
+    &::after {
+      bottom: 50%;
+      left: 100%;
+      // stylelint-disable-next-line primer/spacing
+      margin-left: 6px;
+      transform: translateY(50%);
+    }
+  
+    &::before {
+      top: 50%;
+      right: -7px;
+      bottom: 50%;
+      // stylelint-disable-next-line primer/spacing
+      margin-top: -6px;
+      border-right-color: var(--color-neutral-emphasis-plus);
+    }
+  }
+  
+  // Tooltip align right and left
+  .tooltipped-align-right-1,
+  .tooltipped-align-right-2 {
+    &::after {
+      right: 0;
+      margin-right: 0;
+    }
+  }
+  
+  .tooltipped-align-right-1 {
+    &::before {
+      right: 10px;
+    }
+  }
+  
+  .tooltipped-align-right-2 {
+    &::before {
+      right: 15px;
+    }
+  }
+  
+  .tooltipped-align-left-1,
+  .tooltipped-align-left-2 {
+    &::after {
+      left: 0;
+      margin-left: 0;
+    }
+  }
+  
+  .tooltipped-align-left-1 {
+    &::before {
+      left: 5px;
+    }
+  }
+  
+  .tooltipped-align-left-2 {
+    &::before {
+      left: 10px;
+    }
+  }
+  
+  // Multiline tooltips
+  //
+  // `.tooltipped-multiline` Add this class when you have long content.
+  // The downside is you cannot preformat the text with newlines and `[w,e]`
+  // are always `$tooltip-max-width` wide.
+  .tooltipped-multiline {
+    &::after {
+      width: max-content;
+      max-width: 100px;
+      word-wrap: break-word;
+      white-space: pre-line;
+      border-collapse: separate;
+    }
+  
+    &.tooltipped-s::after,
+    &.tooltipped-n::after {
+      right: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  
+    &.tooltipped-w::after,
+    &.tooltipped-e::after {
+      right: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 0\0) {
+    // IE11
+    .tooltipped-multiline::after {
+      width: 100px;
+    }
+  }
+  
+  // Sticky tooltips
+  //
+  // Always show the tooltip.
+  .tooltipped-sticky {
+    &::before,
+    &::after {
+      display: inline-block;
+    }
+  
+    &.tooltipped-multiline {
+      &::after {
+        display: table-cell;
+      }
+    }
+  }
+  
+  .toplevel_page_streamweasels-youtube {
+    .wp-menu-image img {
+      height: 20px!important;
+      height: auto;
+    }
+    .fs-cards-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -30px;
+      > li {
+        width: 25%;
+        max-width: 300px;
+        margin: 0 0 50px 30px!important;
+      }
+      .fs-extras {
+        padding: 10px 0 0;
+        text-align: center;
+      }
+    }
+  }
+
+  .swyi-notice {
+    border-left-color: #A970FF;
+    padding: 10px;
+    display: flex;
+    &__content {
+      // display: flex;
+      margin: 0 0 0 20px;
+      h2 {
+        margin-top: 5px;
+      }
+      .button {
+        margin: 10px 10px 0 0;
+      }
+    }
+    img {
+      max-width: 1024px!important;
+      width: 100%!important;
+      height: auto!important;
+    }
+  }
