@@ -3,7 +3,7 @@ Contributors: streamweasels, j.burleigh1, freemius
 Tags: youtube, youtube shorts, youtube live, youtube channel, youtube embed
 Requires at least: 5.0
 Tested up to: 6.7
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,9 @@ https://www.youtube.com/watch?v=uA2zoyVVQMs
 6. Display YouTube channel content with embed active (player layout)
 
 == Changelog ==
+
+= 1.3.8 =
+* updating freemius
 
 = 1.3.7 =
 * Properly sanitize and escape all output from sw-youtube-embed shortcode
