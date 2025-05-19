@@ -278,7 +278,25 @@
                     height:100%!important;
                 }                       
             }  
-        }    
+        }
+        &--minimal {
+            .cp-stream {
+                &__info {
+                    display: none;
+                }
+                &__overlay {
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    height: 100%;
+                }                
+                &__inner:before {
+                    height:100%!important;
+                }                                    
+            }  
+        }
         &--hover-YouTube {
             .cp-stream {
                 background-color: var(--yt-hover-colour);

@@ -2,8 +2,8 @@
 Contributors: streamweasels, j.burleigh1, freemius
 Tags: youtube, youtube shorts, youtube live, youtube channel, youtube embed
 Requires at least: 5.0
-Tested up to: 6.7
-Stable tag: 1.3.8
+Tested up to: 6.8
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -84,8 +84,16 @@ https://www.youtube.com/watch?v=uA2zoyVVQMs
 
 == Changelog ==
 
+= 1.4.0 =
+* Fixed an issue with YouTube cache enabled
+* updated freemius
+
+= 1.3.9 =
+* updated freemius
+
 = 1.3.8 =
-* updating freemius
+* Pagination now works once again
+* Added a new minimal option to tile layout which hides video title and description
 
 = 1.3.7 =
 * Properly sanitize and escape all output from sw-youtube-embed shortcode

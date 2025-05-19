@@ -378,7 +378,31 @@
                     height:100%!important;
                 }                                          
             } 
-        } 
+        }
+        &--minimal {
+            .cp-stream {
+                width: 530px;
+                height: 300px;             
+                @media screen and (max-width:530px) {
+                    width: 100%;
+                    height: 350px;
+                }                   
+                &__info {
+                    display: none;
+                }              
+                &__overlay {
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    height: 100%;
+                }    
+                &__inner:after {
+                    height:100%!important;
+                }                                         
+            } 
+        }        
         &--hover-play {
             .cp-stream {
                 // background-color: var(--yt-hover-colour);

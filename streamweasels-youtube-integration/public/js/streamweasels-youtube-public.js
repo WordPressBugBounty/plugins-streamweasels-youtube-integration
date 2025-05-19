@@ -914,40 +914,44 @@ streamWeaselsYouTubeNodes.forEach(function(item, index, array) {
 
 function YTGetNextPage(e) {
     e.preventDefault();
-    var uuid = e.target.dataset.uuid;
-    var streamWeaselsYouTubeVarUuid = eval('streamWeaselsYouTubeVars'+uuid);
-    var pageToken = e.target.dataset.next || e.target.dataset.prev;
-    var playlist = e.target.dataset.playlist;
+    swyiFetchFreshNonce().then(function(freshNonce) {
+        var uuid = e.target.dataset.uuid;
+        var streamWeaselsYouTubeVarUuid = eval('streamWeaselsYouTubeVars'+uuid);
+        var pageToken = e.target.dataset.next || e.target.dataset.prev;
+        var playlist = e.target.dataset.playlist;
 
-    var streamWeaselsYouTubeInit = new streamWeaselsYouTube({
-        uuid: uuid,
-        playlistID: playlist,
-        pageToken: pageToken,
-        limit: streamWeaselsYouTubeVarUuid.limit,
-        pagination: streamWeaselsYouTubeVarUuid.pagination,
-        embed: streamWeaselsYouTubeVarUuid.embed,    
-        embedMuted: streamWeaselsYouTubeVarUuid.embedMuted,   
-        showOffline: streamWeaselsYouTubeVarUuid.showOffline,
-        showOfflineText: streamWeaselsYouTubeVarUuid.showOfflineText,
-        showOfflineImage: streamWeaselsYouTubeVarUuid.showOfflineImage,        
-        autoload: streamWeaselsYouTubeVarUuid.autoload, 
-        autoplay: streamWeaselsYouTubeVarUuid.autoplay, 
-        logoImage: streamWeaselsYouTubeVarUuid.logoImage,
-        logoBgColour: streamWeaselsYouTubeVarUuid.logoBgColour,
-        logoBorderColour: streamWeaselsYouTubeVarUuid.logoBorderColour,
-        tileSorting: streamWeaselsYouTubeVarUuid.tileSorting,
-        tileBgColour: streamWeaselsYouTubeVarUuid.tileBgColour,
-        tileTitleColour: streamWeaselsYouTubeVarUuid.tileTitleColour,
-        tileSubtitleColour: streamWeaselsYouTubeVarUuid.tileSubtitleColour,
-        hoverColour: streamWeaselsYouTubeVarUuid.hoverColour,
-        enableCache: streamWeaselsYouTubeVarUuid.enableCache,
-        hideShorts: streamWeaselsYouTubeVarUuid.hideShorts,
-        shortsIds: streamWeaselsYouTubeVarUuid.shortsIds,
-        translationsLive: streamWeaselsYouTubeVarUuid.translationsLive,
-        translationsViews: streamWeaselsYouTubeVarUuid.translationsViews,
-        translationsNextPage: streamWeaselsYouTubeVarUuid.translationsNextPage,
-        translationsPrevPage: streamWeaselsYouTubeVarUuid.translationsPrevPage,
-        nonce: streamWeaselsYouTubeVarUuid.nonce    
+        var streamWeaselsYouTubeInit = new streamWeaselsYouTube({
+            uuid: uuid,
+            playlistID: playlist,
+            pageToken: pageToken,
+            limit: streamWeaselsYouTubeVarUuid.limit,
+            pagination: streamWeaselsYouTubeVarUuid.pagination,
+            embed: streamWeaselsYouTubeVarUuid.embed,    
+            embedMuted: streamWeaselsYouTubeVarUuid.embedMuted,   
+            showOffline: streamWeaselsYouTubeVarUuid.showOffline,
+            showOfflineText: streamWeaselsYouTubeVarUuid.showOfflineText,
+            showOfflineImage: streamWeaselsYouTubeVarUuid.showOfflineImage,        
+            autoload: streamWeaselsYouTubeVarUuid.autoload, 
+            autoplay: streamWeaselsYouTubeVarUuid.autoplay, 
+            logoImage: streamWeaselsYouTubeVarUuid.logoImage,
+            logoBgColour: streamWeaselsYouTubeVarUuid.logoBgColour,
+            logoBorderColour: streamWeaselsYouTubeVarUuid.logoBorderColour,
+            tileSorting: streamWeaselsYouTubeVarUuid.tileSorting,
+            tileBgColour: streamWeaselsYouTubeVarUuid.tileBgColour,
+            tileTitleColour: streamWeaselsYouTubeVarUuid.tileTitleColour,
+            tileSubtitleColour: streamWeaselsYouTubeVarUuid.tileSubtitleColour,
+            hoverColour: streamWeaselsYouTubeVarUuid.hoverColour,
+            enableCache: streamWeaselsYouTubeVarUuid.enableCache,
+            hideShorts: streamWeaselsYouTubeVarUuid.hideShorts,
+            shortsIds: streamWeaselsYouTubeVarUuid.shortsIds,
+            translationsLive: streamWeaselsYouTubeVarUuid.translationsLive,
+            translationsViews: streamWeaselsYouTubeVarUuid.translationsViews,
+            translationsNextPage: streamWeaselsYouTubeVarUuid.translationsNextPage,
+            translationsPrevPage: streamWeaselsYouTubeVarUuid.translationsPrevPage,
+            nonce: freshNonce
+        })
+    }).catch(function(error) {
+        console.error('Error fetching nonce:', error);
     })
 }
 

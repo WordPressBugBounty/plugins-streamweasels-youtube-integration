@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       SW YouTube Integration - Blocks and Shortcodes for Embedding YouTube
  * Description:       Embed YouTube content like Shorts, Video and Live Streams with our collection of YouTube Blocks and Shortcodes.
- * Version:           1.3.8
+ * Version:           1.4.0
  * Author:            StreamWeasels
  * Author URI:        https://www.streamweasels.com/
  * License:           GPL-2.0+
@@ -32,7 +32,7 @@ if ( !defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'STREAMWEASELS_YOUTUBE_VERSION', '1.3.8' );
+define( 'STREAMWEASELS_YOUTUBE_VERSION', '1.4.0' );
 if ( !defined( 'SWYI_PLUGIN_DIR' ) ) {
     define( 'SWYI_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
 }

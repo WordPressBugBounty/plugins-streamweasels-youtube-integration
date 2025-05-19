@@ -1817,6 +1817,9 @@ class Streamweasels_Youtube_Admin {
             <option value="compact" <?php 
         echo selected( $layout, 'compact', false );
         ?>>Compact</option>
+			<option value="minimal" <?php 
+        echo selected( $layout, 'minimal', false );
+        ?>>Minimal</option>
         </select>
 		<p>Choose the layout mode for your YouTube video tiles.</p>
 

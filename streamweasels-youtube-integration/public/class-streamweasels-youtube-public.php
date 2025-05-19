@@ -196,6 +196,11 @@ class Streamweasels_Youtube_Public {
     }
 
     public function streamweasels_content( $args, $uuid ) {
+        // stop early in the customizer
+        // this is needed to prevent the customizer from loading the YouTube API
+        if ( is_customize_preview() ) {
+            return false;
+        }
         $options = get_option( 'swyi_options' );
         $translations = get_option( 'swyi_translations' );
         $optionsWall = get_option( 'swyi_options_wall' );

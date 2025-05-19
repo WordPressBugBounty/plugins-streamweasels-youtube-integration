@@ -12,8 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
 
-    class SWYI_YouTube_API_Cache {
+    class SWYI_YouTube_API_Cache extends Streamweasels_Youtube_Admin {
 
+        public $options;
+        public $channel_id;
+        public $playlist_id;
+        public $api_key;
         private $token_url = 'https://www.googleapis.com/youtube/v3/channels?part=contentDetails';
         private $channel_url = 'https://www.googleapis.com/youtube/v3/channels?part=contentDetails';
         private $playlist_url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails,status';
@@ -37,7 +41,7 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
         public function get_channel_upload_id() {
        
             if (($this->channel_id == '' && $this->playlist_id == '') || $this->api_key == '') {
-                swyi_youtube_debug_field('SWYI Cache - get_channel_upload_id failed - Channel ID / Playlist or API Key is empty');
+                $this->swyi_youtube_debug_field('SWYI Cache - get_channel_upload_id failed - Channel ID / Playlist or API Key is empty');
                 return false;
             }
 
@@ -50,7 +54,7 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
 
             // If cached data exists and has not expired, return it
             if ($cached_data !== false) {
-                swyi_youtube_debug_field('SWYI Cache - skipping get_channel_upload_id - upload ID found in cache');
+                $this->swyi_youtube_debug_field('SWYI Cache - skipping get_channel_upload_id - upload ID found in cache');
                 return $cached_data;
             }
 
@@ -64,8 +68,8 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
 			]);
 
 			if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != 200 ) {
-				swyi_youtube_debug_field('SWYI Cache - get_channel_upload_id Failed - '.$this->channel_url);
-                swyi_youtube_debug_field($response['body']);
+				$this->swyi_youtube_debug_field('SWYI Cache - get_channel_upload_id Failed - '.$this->channel_url);
+                $this->swyi_youtube_debug_field($response['body']);
                 return false;
 			}  
 
@@ -73,12 +77,12 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
 			$result = json_decode( $result, true );
 
             if  (isset($result['items']) && isset($result['items'][0]['contentDetails']['relatedPlaylists']['uploads'])) {
-                swyi_youtube_debug_field('SWYI Cache - Channel Query Success - Playlist ID ('.$result['items'][0]['contentDetails']['relatedPlaylists']['uploads'].') found for Channel ('.$this->channel_id.')');
+                $this->swyi_youtube_debug_field('SWYI Cache - Channel Query Success - Playlist ID ('.$result['items'][0]['contentDetails']['relatedPlaylists']['uploads'].') found for Channel ('.$this->channel_id.')');
                 $uploadId = $result['items'][0]['contentDetails']['relatedPlaylists']['uploads'];
                 // cache for a year
                 set_transient($transient_name, $uploadId, 31536000);
             } else {
-                swyi_youtube_debug_field('SWYI Cache - get_channel_upload_id failed - '.$this->channel_url.'&key='.$this->api_key.'&id='.$this->channel_id);
+                $this->swyi_youtube_debug_field('SWYI Cache - get_channel_upload_id failed - '.$this->channel_url.'&key='.$this->api_key.'&id='.$this->channel_id);
                 return false;
             }
 
@@ -88,12 +92,12 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
         public function get_channel_videos($uploadId, $forceRefresh = false) {
 
             if (($this->channel_id == '' && $this->playlist_id == '') || $this->api_key == '') {
-                swyi_youtube_debug_field('SWYI Cache - get_channel_videos failed - Channel ID / Playlist or API Key is empty');
+                $this->swyi_youtube_debug_field('SWYI Cache - get_channel_videos failed - Channel ID / Playlist or API Key is empty');
                 return false;
             }
 
             if ($uploadId == '') {
-                swyi_youtube_debug_field('SWYI Cache - get_channel_videos failed - Upload ID is empty');
+                $this->swyi_youtube_debug_field('SWYI Cache - get_channel_videos failed - Upload ID is empty');
                 return false;
             }
 
@@ -103,7 +107,7 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
             // If cached data exists and has not expired, return it
             if ($cached_data !== false && $forceRefresh == false) {
                 if ($cached_data['channelID'] == $this->channel_id || $cached_data['channelID'] == $this->playlist_id) {
-                    swyi_youtube_debug_field('SWYI Cache - skipping get_channel_videos - videos found in cache');
+                    $this->swyi_youtube_debug_field('SWYI Cache - skipping get_channel_videos - videos found in cache');
                     return $cached_data;
                 }
             }
@@ -118,8 +122,8 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
 			]);
 
 			if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != 200 ) {
-				swyi_youtube_debug_field('SWYI Cache - get_channel_videos Failed - '.$this->playlist_url.'&key='.$this->api_key.'&id='.$uploadId);
-                swyi_youtube_debug_field($response['body']);
+				$this->swyi_youtube_debug_field('SWYI Cache - get_channel_videos Failed - '.$this->playlist_url.'&key='.$this->api_key.'&id='.$uploadId);
+                $this->swyi_youtube_debug_field($response['body']);
                 return false;
 			}
 
@@ -164,7 +168,7 @@ if ( ! class_exists( 'SWYI_YouTube_API_Cache' ) ) {
 
             if (!empty($transientData) && !empty($transientData['items'])) {
                 // Cache the data for 24 hours (86400 seconds)
-                swyi_youtube_debug_field('SWYI Cache - Cache generation success');
+                $this->swyi_youtube_debug_field('SWYI Cache - Cache generation success');
                 set_transient($transient_name, $transientData, 86400);
             }
 
