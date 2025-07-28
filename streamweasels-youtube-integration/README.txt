@@ -3,7 +3,7 @@ Contributors: streamweasels, j.burleigh1, freemius
 Tags: youtube, youtube shorts, youtube live, youtube channel, youtube embed
 Requires at least: 5.0
 Tested up to: 6.8
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,10 @@ https://www.youtube.com/watch?v=uA2zoyVVQMs
 6. Display YouTube channel content with embed active (player layout)
 
 == Changelog ==
+
+= 1.4.1 =
+* updated freemius
+* security fix for invalid UUIDs
 
 = 1.4.0 =
 * Fixed an issue with YouTube cache enabled

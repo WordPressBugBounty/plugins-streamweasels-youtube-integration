@@ -870,6 +870,10 @@ function swyiFetchFreshNonce() {
 var streamWeaselsYouTubeNodes = document.querySelectorAll('.cp-streamweasels-youtube');
 streamWeaselsYouTubeNodes.forEach(function(item, index, array) {
     var uuid = item.dataset.uuid;
+    if (!/^\d+$/.test(uuid)) {
+        console.error('Invalid UUID:', uuid);
+        return;
+    }
     swyiFetchFreshNonce().then(function(freshNonce) { 
         var streamWeaselsYouTubeVarUuid = eval('streamWeaselsYouTubeVars'+uuid);
         var streamWeaselsYouTubeInit = new streamWeaselsYouTube({
@@ -916,6 +920,10 @@ function YTGetNextPage(e) {
     e.preventDefault();
     swyiFetchFreshNonce().then(function(freshNonce) {
         var uuid = e.target.dataset.uuid;
+        if (!/^\d+$/.test(uuid)) {
+            console.error('Invalid UUID:', uuid);
+            return;
+        }        
         var streamWeaselsYouTubeVarUuid = eval('streamWeaselsYouTubeVars'+uuid);
         var pageToken = e.target.dataset.next || e.target.dataset.prev;
         var playlist = e.target.dataset.playlist;
