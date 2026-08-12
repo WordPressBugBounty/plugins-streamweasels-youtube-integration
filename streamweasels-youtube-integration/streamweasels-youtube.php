@@ -14,9 +14,8 @@
  *
  * @wordpress-plugin
  * Plugin Name:       SW YouTube Integration - Blocks and Shortcodes for Embedding YouTube
- * Plugin URI:        https://www.streamweasels.com/
  * Description:       Embed YouTube content like Shorts, Video and Live Streams with our collection of YouTube Blocks and Shortcodes.
- * Version:           1.4.1
+ * Version:           1.4.2
  * Author:            StreamWeasels
  * Author URI:        https://www.streamweasels.com/
  * License:           GPL-2.0+
@@ -33,7 +32,7 @@ if ( !defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'STREAMWEASELS_YOUTUBE_VERSION', '1.4.1' );
+define( 'STREAMWEASELS_YOUTUBE_VERSION', '1.4.2' );
 if ( !defined( 'SWYI_PLUGIN_DIR' ) ) {
     define( 'SWYI_PLUGIN_DIR', plugin_dir_url( __FILE__ ) );
 }
@@ -47,24 +46,25 @@ if ( function_exists( 'syi_fs' ) ) {
             // Include Freemius SDK.
             require_once dirname( __FILE__ ) . '/freemius/start.php';
             $syi_fs = fs_dynamic_init( array(
-                'id'             => '10981',
-                'slug'           => 'streamweasels-youtube-integration',
-                'premium_slug'   => 'streamweasels-youtube-integration-paid',
-                'type'           => 'plugin',
-                'public_key'     => 'pk_e3edb343eda5c0b485d6e92c02326',
-                'is_premium'     => false,
-                'premium_suffix' => '(Paid)',
-                'has_addons'     => false,
-                'has_paid_plans' => true,
-                'trial'          => array(
+                'id'               => '10981',
+                'slug'             => 'streamweasels-youtube-integration',
+                'premium_slug'     => 'streamweasels-youtube-integration-paid',
+                'type'             => 'plugin',
+                'public_key'       => 'pk_e3edb343eda5c0b485d6e92c02326',
+                'is_premium'       => false,
+                'premium_suffix'   => '(Paid)',
+                'has_addons'       => false,
+                'has_paid_plans'   => true,
+                'trial'            => array(
                     'days'               => 7,
                     'is_require_payment' => true,
                 ),
-                'menu'           => array(
+                'menu'             => array(
                     'slug'    => 'streamweasels-youtube',
                     'support' => false,
                 ),
-                'is_live'        => true,
+                'is_live'          => true,
+                'is_org_compliant' => true,
             ) );
         }
         return $syi_fs;
