@@ -3,7 +3,7 @@ Contributors: streamweasels, j.burleigh1, freemius
 Tags: youtube, youtube shorts, youtube live, youtube channel, youtube embed
 Requires at least: 5.0
 Tested up to: 7.0.3
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,9 @@ https://www.youtube.com/watch?v=uA2zoyVVQMs
 6. Display YouTube channel content with embed active (player layout)
 
 == Changelog ==
+
+= 1.4.3 =
+* Updated Freemius SDK to the latest version
 
 = 1.4.2 =
 * Updated Freemius SDK to 2.13.4
